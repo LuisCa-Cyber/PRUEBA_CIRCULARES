@@ -16,9 +16,15 @@ load_dotenv()
 # Obtener la clave API desde la variable de entorno
 api_key = os.getenv("OPENAI_API_KEY")
 
+if api_key is None:
+    st.error("No se encontró la clave API de OpenAI. Verifica las variables de entorno en Streamlit Cloud.")
+else:
+    # Asignar la clave API globalmente si está presente
+    openai.api_key = api_key
+
 # Configurar API key de OpenAI
 # client = OpenAI(api_key=api_key)
-openai.api_key = api_key
+#openai.api_key = api_key
 
 def extract_text_from_pdf(pdf_path):
     document = fitz.open(pdf_path)
