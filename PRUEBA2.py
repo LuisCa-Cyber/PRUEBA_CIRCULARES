@@ -4,7 +4,7 @@ from dotenv import load_dotenv  # Para cargar las variables de entorno
 import fitz
 import nltk
 import streamlit as st
-from openai import OpenAI   # OpenAI debe importarse como 'openai', no 'OpenAI'
+import openai   # OpenAI debe importarse como 'openai', no 'OpenAI'
 
 
 
@@ -16,8 +16,13 @@ load_dotenv()
 # Obtener la clave API desde la variable de entorno
 api_key = os.getenv("OPENAI_API_KEY")
 
-# Configurar API key de OpenAI
-client = OpenAI(api_key=api_key)
+api_key = os.getenv("OPENAI_API_KEY")
+
+if api_key is None:
+    st.error("No se encontró la clave API de OpenAI. Verifica las variables de entorno en Streamlit Cloud.")
+else:
+    # Asignar la clave API globalmente
+    openai.api_key = api_key
 
 def extract_text_from_pdf(pdf_path):
     document = fitz.open(pdf_path)
@@ -99,7 +104,7 @@ def run_chatbot():
         st.session_state.messages.append({"role": "user", "content": prompt})
             
 
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",  # Seleccionar modelo: gpt-3.5-turbo | gpt-4 | gpt-4-turbo
             messages=messages,
             temperature=1,
