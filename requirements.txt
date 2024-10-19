@@ -2,5 +2,6 @@ streamlit
 openai
 fitz
 nltk
-streamlit_jupyter
 PyMuPDF
+dotenv
+os
