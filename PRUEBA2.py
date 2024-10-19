@@ -71,7 +71,7 @@ Texto_Final = load_text_files()
 
 # Definir función principal de Streamlit
 def run_chatbot():
-    st.title("Asistente Comercial")
+    st.title("Arquitectura de Datos - Asistente de Circulares")
 
     # Inicializar el historial de mensajes si no existe en session_state
     if "messages" not in st.session_state:
