@@ -3,3 +3,5 @@ openai
 fitz
 nltk
 PyMuPDF
+python-dotenv
+os
