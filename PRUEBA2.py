@@ -107,8 +107,8 @@ def run_chatbot():
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",  # Seleccionar modelo: gpt-3.5-turbo | gpt-4 | gpt-4-turbo
             messages=messages,
-            temperature=1,
-            max_tokens=300
+            temperature=1
+            #max_tokens=300
         )
 
         contenido = response.choices[0].message.content
