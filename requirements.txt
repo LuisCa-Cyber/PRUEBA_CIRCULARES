@@ -1,0 +1,5 @@
+streamlit
+openai
+fitz
+nltk
+streamlit_jupyter
