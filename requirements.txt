@@ -2,5 +2,6 @@ python-dotenv
 pymupdf
 nltk
 streamlit
-openai
+openai==0.28.0
+
 
