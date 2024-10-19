@@ -50,11 +50,11 @@ def clean_text(text):
 def load_text_files():
     texto_concatenado = ""
     pdf_paths = [
-        'C:/Users/Luis.fernandez/Desktop/Proyecto-NLP/Circulares Normativas Externas/1. Texto/Para Cargar/CNE-001-2024 - Ajuste al programa especial de garantia Fusagasuga EMP440.pdf'
-        ,'C:/Users/Luis.fernandez/Desktop/Proyecto-NLP/Circulares Normativas Externas/1. Texto/Para Cargar/CNE-002-2024 Ajustes al programa especial Capital Creativo EMP168 Y EMP169.pdf'
-        ,'C:/Users/Luis.fernandez/Desktop/Proyecto-NLP/Circulares Normativas Externas/1. Texto/Para Cargar/CNE-003-2024- Programa Especial San Andrés, Providencia y Santa Catalina.pdf'
-        ,'C:/Users/Luis.fernandez/Desktop/Proyecto-NLP/Circulares Normativas Externas/1. Texto/Para Cargar/CNE-008-2024 Ajustes a los productos Microcrédito para Crecer-EMP023 y Facilitación de Novaciones Microcrédito-EMP123.pdf'
-        ,'C:/Users/Luis.fernandez/Desktop/Proyecto-NLP/Circulares Normativas Externas/1. Texto/Para Cargar/CNE-022-2024 - Producto de Garantía Transformacion Social EMP285.pdf'
+        'CIRCULARES/CNE-001-2024 - Ajuste al programa especial de garantia Fusagasuga EMP440.pdf'
+        ,'CIRCULARES/CNE-002-2024 Ajustes al programa especial Capital Creativo EMP168 Y EMP169.pdf'
+        ,'CIRCULARES/CNE-003-2024- Programa Especial San Andrés, Providencia y Santa Catalina.pdf'
+        ,'CIRCULARES/CNE-008-2024 Ajustes a los productos Microcrédito para Crecer-EMP023 y Facilitación de Novaciones Microcrédito-EMP123.pdf'
+        ,'CIRCULARES/CNE-022-2024 - Producto de Garantía Transformacion Social EMP285.pdf'
     ]
     # Iterar sobre cada archivo PDF
     for pdf_path in pdf_paths:
