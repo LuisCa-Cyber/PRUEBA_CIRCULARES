@@ -17,7 +17,8 @@ load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 
 # Configurar API key de OpenAI
-client = OpenAI(api_key=api_key)
+# client = OpenAI(api_key=api_key)
+openai.api_key = api_key
 
 def extract_text_from_pdf(pdf_path):
     document = fitz.open(pdf_path)
@@ -100,7 +101,7 @@ def run_chatbot():
         st.session_state.messages.append({"role": "user", "content": prompt})
             
 
-        response = client.chat.completions.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",  # Seleccionar modelo: gpt-3.5-turbo | gpt-4 | gpt-4-turbo
             messages=messages,
             temperature=1,
