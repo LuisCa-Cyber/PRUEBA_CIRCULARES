@@ -3,7 +3,7 @@ import fitz
 import nltk
 import streamlit as st
 from openai import OpenAI
-from streamlit_jupyter import StreamlitPatcher
+#from streamlit_jupyter import StreamlitPatcher
 
 
 # Cargar las stopwords de NLTK
