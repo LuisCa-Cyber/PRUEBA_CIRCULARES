@@ -16,15 +16,8 @@ load_dotenv()
 # Obtener la clave API desde la variable de entorno
 api_key = os.getenv("OPENAI_API_KEY")
 
-if api_key is None:
-    st.error("No se encontró la clave API de OpenAI. Verifica las variables de entorno en Streamlit Cloud.")
-else:
-    # Asignar la clave API globalmente si está presente
-    openai.api_key = api_key
-
 # Configurar API key de OpenAI
-# client = OpenAI(api_key=api_key)
-#openai.api_key = api_key
+client = OpenAI(api_key=api_key)
 
 def extract_text_from_pdf(pdf_path):
     document = fitz.open(pdf_path)
@@ -68,8 +61,7 @@ def load_text_files():
         ,'CIRCULARES/CNE-003-2024- Programa Especial San Andrés, Providencia y Santa Catalina.pdf'
         ,'CIRCULARES/CNE-008-2024 Ajustes a los productos Microcrédito para Crecer-EMP023 y Facilitación de Novaciones Microcrédito-EMP123.pdf'
         ,'CIRCULARES/CNE-022-2024 - Producto de Garantía Transformacion Social EMP285.pdf'
-    ]
-    # Iterar sobre cada archivo PDF
+    ]    # Iterar sobre cada archivo PDF
     for pdf_path in pdf_paths:
         document_text = extract_text_from_pdf(pdf_path)
         processed_text = preprocess_text(document_text)
@@ -107,7 +99,7 @@ def run_chatbot():
         st.session_state.messages.append({"role": "user", "content": prompt})
             
 
-        response = openai.chat.completions.create(
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",  # Seleccionar modelo: gpt-3.5-turbo | gpt-4 | gpt-4-turbo
             messages=messages,
             temperature=1,
