@@ -3,3 +3,4 @@ openai
 fitz
 nltk
 streamlit_jupyter
+PyMuPDF
