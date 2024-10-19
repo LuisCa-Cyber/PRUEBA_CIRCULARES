@@ -1,16 +1,22 @@
 
+import os
+from dotenv import load_dotenv  # Para cargar las variables de entorno
 import fitz
 import nltk
 import streamlit as st
-from openai import OpenAI
-#from streamlit_jupyter import StreamlitPatcher
+from openai import OpenAI   # OpenAI debe importarse como 'openai', no 'OpenAI'
+
 
 
 # Cargar las stopwords de NLTK
 nltk.download('stopwords')
 
+load_dotenv()
+
+# Obtener la clave API desde la variable de entorno
+api_key = os.getenv("OPENAI_API_KEY")
+
 # Configurar API key de OpenAI
-api_key = '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'
 client = OpenAI(api_key=api_key)
 
 def extract_text_from_pdf(pdf_path):
@@ -71,7 +77,7 @@ Texto_Final = load_text_files()
 
 # Definir función principal de Streamlit
 def run_chatbot():
-    st.title("Asistente de Circulares")
+    st.title("Arquitectura de Datos - Asistente Circulares")
 
     # Inicializar el historial de mensajes si no existe en session_state
     if "messages" not in st.session_state:
