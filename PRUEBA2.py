@@ -104,7 +104,7 @@ def run_chatbot():
         st.session_state.messages.append({"role": "user", "content": prompt})
             
 
-        response = openai.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",  # Seleccionar modelo: gpt-3.5-turbo | gpt-4 | gpt-4-turbo
             messages=messages,
             temperature=1,
